@@ -44,7 +44,7 @@ jobs:
           tags: |
             ${{ steps.name.outputs.image }}:latest
             ${{ steps.name.outputs.image }}:${{ github.sha }}
-          # One line, two architectures. Ask topic 3 what it costs.
+          # One line, two architectures. It is not free: the build gets slower.
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
