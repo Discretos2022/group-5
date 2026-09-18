@@ -1,0 +1,8 @@
+#!/bin/sh
+echo "Content-type: text/html"
+echo
+say=$(printf '%s' "$QUERY_STRING" | sed -n 's/^.*message=\([^&]*\).*$/\1/p' | sed 's/+/ /g')
+[ -z "$say" ] && say="try /?message?hello"
+echo "<pre>"
+docker run --rm my_whale -f group-5 "$say" 
+echo "</pre>"
